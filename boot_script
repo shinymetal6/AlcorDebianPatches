@@ -1,0 +1,7 @@
+setenv fdt_file "alcor.dtb"
+fatload mmc 1:1 $fdt_addr $fdt_file
+fatload mmc 1:1 $loadaddr Image
+setenv rootdev 		"/dev/mmcblk1p2 rootwait rw"
+setenv bootargs console=${console} root=${rootdev} 
+booti ${loadaddr} - ${fdt_addr}
+
